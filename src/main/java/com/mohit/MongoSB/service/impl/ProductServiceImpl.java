@@ -50,7 +50,6 @@ public class ProductServiceImpl implements ProductService{
 		productRepository.deleteById(userId);
 		return true;
 	}
-	
 	//Only property in input object to be updated, rest must not be set to null
 	@Override
 	public boolean editProduct(List<ProductEntity> products) {
