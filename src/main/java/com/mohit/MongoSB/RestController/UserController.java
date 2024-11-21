@@ -28,7 +28,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-	public UserEntity getStudentNameById(@PathVariable("id") long id) {
+	public List<UserEntity> getStudentNameById(@PathVariable("id") long id) {
 		return userService.findUserById(id);
 	}
 	

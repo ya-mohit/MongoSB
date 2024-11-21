@@ -21,7 +21,4 @@ public class OrdersServiceImpl implements OrdersService{
 		return true;
 	}
 
-	
-	
-	
 }

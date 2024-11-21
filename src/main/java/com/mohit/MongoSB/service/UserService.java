@@ -8,7 +8,7 @@ public interface UserService {
 	
 	List<UserEntity> findAllUsers();
 
-	UserEntity findUserById(long id);
+	List<UserEntity> findUserById(long id);
 
 	boolean addUser(List<UserEntity> users);
 

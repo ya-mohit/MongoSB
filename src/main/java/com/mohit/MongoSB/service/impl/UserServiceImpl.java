@@ -6,6 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,15 +26,24 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	MongoTemplate mongoTemplate;
+
+	@Override
+	public List<UserEntity> findUserById(long id) {
+		
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(1));
+		List<UserEntity> users = mongoTemplate.find(query, UserEntity.class, "users");
+		System.out.println("Query result: " + users);
+
+		return users; //userRepository.findByUserId(id);
+	}
 
 	@Override
 	public List<UserEntity> findAllUsers() {
 		return userRepository.findAll(Sort.by("userId"));
-	}
-
-	@Override
-	public UserEntity findUserById(long id) {
-		return userRepository.findByUserId(id);
 	}
 
 	@Override
