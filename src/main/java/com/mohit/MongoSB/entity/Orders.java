@@ -12,6 +12,7 @@ public class Orders {
 	private List<OrderItems> orderDetails;
 	private long userId;
 	private long totalPrice;
+	private String orderDate;
 	
 	public long getOrderId() {
 		return orderId;
@@ -37,29 +38,16 @@ public class Orders {
 	public void setOrderDetails(List<OrderItems> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
-
-	public static class OrderItems{
-		
-		private String productId;
-		private String quantity;
-		
-		public String getProductId() {
-			return productId;
-		}
-		public void setProductId(String productId) {
-			this.productId = productId;
-		}
-		public String getQuantity() {
-			return quantity;
-		}
-		public void setQuantity(String quantity) {
-			this.quantity = quantity;
-		}
+	public String getOrderDate() {
+		return orderDate;
 	}
-
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+	
 	@Override
 	public String toString() {
 		return "Orders [orderId=" + orderId + ", orderDetails=" + orderDetails + ", userId=" + userId + ", totalPrice="
-				+ totalPrice + "]";
+				+ totalPrice + ", orderDate=" + orderDate + "]";
 	}
 }

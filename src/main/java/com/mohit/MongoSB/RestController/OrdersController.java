@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mohit.MongoSB.entity.Orders;
+import com.mohit.MongoSB.entity.UserOrderDTO;
 import com.mohit.MongoSB.service.OrdersService;
 
 @RestController
@@ -30,8 +31,8 @@ public class OrdersController {
 	}
 	
 	@GetMapping("/orderByUser/{id}")
-	String getOrdersByUser(@PathVariable("id") long userId) {
-		return "";
+	List<UserOrderDTO> getOrdersByUser(@PathVariable("id") long userId) {
+		return ordersService.getOrderByUser(userId);
 	}
 	
 }
